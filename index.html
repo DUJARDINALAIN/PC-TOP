@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PC @ TOP - Dépannage Informatique</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #065e77, #0b94c1);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 20px;
+      text-align: center;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-title img {
+      width: 100px;
+      height: auto;
+      animation: spin 6s infinite linear;
+      transform-style: preserve-3d;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    .logo-title h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.5em;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .infos {
+      margin-top: 20px;
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .infos .tel {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #ffe600;
+    }
+
+    section {
+      max-width: 900px;
+      width: 90%;
+      background-color: #ffffff10;
+      backdrop-filter: blur(5px);
+      border-radius: 16px;
+      padding: 30px;
+      margin: 20px 0;
+      color: white;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    section h2 {
+      margin-bottom: 15px;
+      font-size: 2em;
+    }
+
+    .services ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .services li {
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ffffff30;
+      padding-bottom: 8px;
+      font-size: 1.1em;
+    }
+
+    .services li span {
+      float: right;
+      font-weight: bold;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: left;
+    }
+
+    form input,
+    form textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      width: 100%;
+    }
+
+    form button {
+      background-color: #ffffff;
+      color: #065e77;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #ddd;
+    }
+
+    .social-links a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-size: 2em;
+      transition: transform 0.2s ease;
+    }
+
+    .social-links a:hover {
+      color: #ffe600;
+      transform: scale(1.2);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 600px) {
+      .logo-title {
+        flex-direction: column;
+      }
+
+      .logo-title h1 {
+        font-size: 2.2em;
+      }
+
+      .infos .tel {
+        font-size: 1.4em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-title">
+      <img src="4d8d779d-4203-467f-a996-e90a9501505a.png" alt="Logo gauche PC @ TOP">
+      <h1>PC @ TOP</h1>
+      <img src="4d8d779d-4203-467f-a996-e90a9501505a.png" alt="Logo droite PC @ TOP">
+    </div>
+    <p>Votre PC au TOP !</p>
+    <div class="infos">
+      <div class="tel">📞 07 72 11 70 52</div>
+      <span>🕒 Du Lundi au Samedi - 9h à 19h</span><br />
+      <span>📍 Intervention sur le Valenciennois (dans un rayon de 15 km)</span>
+    </div>
+  </header>
+
+  <section class="services">
+    <h2>Tarifs et Prestations</h2>
+    <ul>
+      <li>Dépannage à domicile <span>20 € / heure</span></li>
+      <li>Suppression de virus / malwares <span>20 € / heure</span></li>
+      <li>Réinstallation de Windows avec sauvegarde <span>Forfait : 60 €</span></li>
+      <li>Montage de PC ou remplacement de pièces <span>Forfait : 50 €</span></li>
+      <li>Récupération de données <span>Forfait : 100 €</span></li>
+      <li>Conseils et optimisation PC <span>Gratuit (15 min)</span></li>
+    </ul>
+  </section>
+
+  <section class="contact">
+    <h2>Contactez-nous</h2>
+    <form action="mailto:alain.dujardin@orange.fr" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Votre nom" required />
+      <input type="email" name="email" placeholder="Votre email" required />
+      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <section class="social">
+    <h2>Suivez-nous</h2>
+    <div class="social-links">
+      <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/33600000000" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 PC @ TOP - Tous droits réservés.
+  </footer>
+
+</body>
+</html>
