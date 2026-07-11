@@ -453,6 +453,55 @@
       }
     }
 
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .trust-card {
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .trust-card i {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #ffe600;
+    }
+
+    .quote-box {
+      background: rgba(255, 230, 0, 0.12);
+      border: 1px solid rgba(255, 230, 0, 0.35);
+    }
+
+    .quote-box .cta-row {
+      margin-top: 18px;
+    }
+
+    .legal-section {
+      text-align: left;
+    }
+
+    .legal-section h3 {
+      margin-top: 24px;
+    }
+
+    .legal-section a {
+      color: #ffe600;
+    }
+
+    @media (max-width: 800px) {
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -462,7 +511,9 @@
       <a href="#services">Prestations</a>
       <a href="#zone">Zone d’intervention</a>
       <a href="#faq">Questions fréquentes</a>
+      <a href="#devis">Devis</a>
       <a href="#contact">Contact</a>
+      <a href="#mentions-legales">Mentions légales</a>
     </div>
   </nav>
   <header>
@@ -513,6 +564,28 @@
         <article class="intro-card">
           <h3>Contact rapide</h3>
           <p>Prise de contact simple par téléphone, WhatsApp ou e-mail.</p>
+        </article>
+      </div>
+    </section>
+
+
+    <section aria-labelledby="confiance-title">
+      <h2 id="confiance-title">Pourquoi faire appel à PC @ TOP ?</h2>
+      <div class="trust-grid">
+        <article class="trust-card">
+          <i class="fa-solid fa-house-laptop" aria-hidden="true"></i>
+          <h3>Intervention à domicile</h3>
+          <p>Vous évitez de transporter votre matériel : l’intervention se fait directement chez vous.</p>
+        </article>
+        <article class="trust-card">
+          <i class="fa-solid fa-euro-sign" aria-hidden="true"></i>
+          <h3>Tarifs clairs</h3>
+          <p>Les principaux tarifs sont affichés à l’avance pour une meilleure transparence.</p>
+        </article>
+        <article class="trust-card">
+          <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+          <h3>Solutions adaptées</h3>
+          <p>Diagnostic, nettoyage, réinstallation, remplacement de pièces et conseils personnalisés.</p>
         </article>
       </div>
     </section>
@@ -576,6 +649,28 @@
       </details>
     </section>
 
+
+    <section class="quote-box" id="devis">
+      <h2>Demander un devis gratuit</h2>
+      <p>
+        Décrivez brièvement votre panne ou votre besoin. Vous pouvez appeler directement
+        ou envoyer un message par WhatsApp pour obtenir une première estimation.
+      </p>
+      <div class="cta-row">
+        <a class="cta-button" href="tel:+33633061315">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          Appeler le 06 33 06 13 15
+        </a>
+        <a class="cta-button secondary"
+           href="https://wa.me/33633061315?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis%20pour%20un%20d%C3%A9pannage%20informatique."
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          Demander un devis sur WhatsApp
+        </a>
+      </div>
+    </section>
+
     <section class="contact" id="contact">
       <h2>Contactez votre technicien informatique à Valenciennes</h2>
       <form action="mailto:contact@pctop-valenciennes.fr" method="post" enctype="text/plain">
@@ -612,6 +707,43 @@
         </a>
       </div>
     </section>
+
+    <section class="legal-section" id="mentions-legales">
+      <h2>Mentions légales et confidentialité</h2>
+
+      <h3>Éditeur du site</h3>
+      <p>
+        PC @ TOP<br>
+        SIREN : 518 592 563<br>
+        Téléphone : <a href="tel:+33633061315">06 33 06 13 15</a><br>
+        E-mail : <a href="mailto:contact@pctop-valenciennes.fr">contact@pctop-valenciennes.fr</a>
+      </p>
+
+      <h3>Hébergement</h3>
+      <p>
+        Ce site est hébergé par GitHub Pages, un service proposé par GitHub, Inc.
+      </p>
+
+      <h3>Données personnelles</h3>
+      <p>
+        Les informations envoyées volontairement par e-mail sont utilisées uniquement
+        pour répondre à votre demande. Elles ne sont pas revendues à des tiers.
+      </p>
+
+      <h3>Cookies et services externes</h3>
+      <p>
+        Le site ne dépose pas volontairement de cookies publicitaires. Certains liens externes,
+        comme Facebook, WhatsApp ou Google Maps, peuvent appliquer leurs propres règles de confidentialité
+        lorsque vous les ouvrez.
+      </p>
+
+      <h3>Responsabilité</h3>
+      <p>
+        Les informations et tarifs présentés sur ce site sont donnés à titre indicatif.
+        Un diagnostic peut être nécessaire avant toute intervention.
+      </p>
+    </section>
+
   </main>
 
   <footer>
@@ -621,6 +753,7 @@
       Dépannage informatique à Valenciennes, Marly, Anzin et alentours
     </p>
     <p class="legal-links">
+      <a href="#mentions-legales">Mentions légales et confidentialité</a><br>
       <a href="mailto:contact@pctop-valenciennes.fr">contact@pctop-valenciennes.fr</a>
     </p>
   </footer>
@@ -635,3 +768,4 @@
   </div>
 </body>
 </html>
+
