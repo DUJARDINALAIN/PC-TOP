@@ -40,30 +40,38 @@
 
   <style>
     :root {
-      --primary:#087f9f;
-      --primary-dark:#054d62;
-      --accent:#ffe600;
-      --panel:rgba(255,255,255,.10);
-      --border:rgba(255,255,255,.20);
-      --text:#fff;
-      --shadow:0 14px 35px rgba(0,0,0,.28);
+      --primary:#19b6d2;
+      --primary-dark:#071b2a;
+      --secondary:#174568;
+      --accent:#ffd84d;
+      --panel:rgba(9,31,48,.78);
+      --panel-soft:rgba(255,255,255,.07);
+      --border:rgba(159,222,240,.20);
+      --text:#f4fbff;
+      --muted:#c9dce6;
+      --shadow:0 18px 50px rgba(0,0,0,.28);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+      font-family:Inter,"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
       color:var(--text);
-      background:linear-gradient(135deg,#065e77,#0b94c1);
+      background:
+        radial-gradient(circle at 8% 5%, rgba(25,182,210,.22), transparent 32rem),
+        radial-gradient(circle at 94% 18%, rgba(48,109,159,.23), transparent 30rem),
+        linear-gradient(145deg,#04111c 0%,#082338 48%,#0a3550 100%);
       min-height:100vh;
+      background-attachment:fixed;
     }
     img{max-width:100%}
     a{color:inherit}
     .top-nav{
       position:sticky;top:0;z-index:1000;
-      background:rgba(3,55,71,.93);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--border);
+      background:rgba(4,17,28,.84);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(159,222,240,.14);
+      box-shadow:0 8px 24px rgba(0,0,0,.12);
     }
     .nav-inner{
       max-width:1180px;margin:auto;padding:12px 18px;
@@ -74,40 +82,150 @@
     .nav-links a{text-decoration:none;font-weight:700}
     .nav-links a:hover{color:var(--accent)}
     header{
-      max-width:1180px;margin:auto;padding:56px 20px 34px;text-align:center;
+      max-width:1180px;
+      margin:34px auto 22px;
+      padding:0 20px;
+      text-align:center;
     }
-    .logo-title{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;perspective:800px}
+    .hero-shell{
+      position:relative;
+      overflow:hidden;
+      padding:38px clamp(20px,4vw,48px);
+      border:1px solid rgba(159,222,240,.22);
+      border-radius:28px;
+      background:
+        linear-gradient(135deg,rgba(8,32,49,.94),rgba(11,58,82,.78)),
+        radial-gradient(circle at 50% 0%,rgba(25,182,210,.18),transparent 28rem);
+      box-shadow:0 24px 70px rgba(0,0,0,.32);
+    }
+    .hero-shell::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      pointer-events:none;
+      background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.06) 48%,transparent 70%);
+      transform:translateX(-100%);
+      animation:hero-shine 8s ease-in-out infinite;
+    }
+    @keyframes hero-shine{
+      0%,65%{transform:translateX(-100%)}
+      90%,100%{transform:translateX(100%)}
+    }
+    .logo-title{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:96px minmax(0,1fr) 96px;
+      align-items:center;
+      gap:24px;
+      max-width:920px;
+      margin:0 auto;
+      perspective:800px;
+    }
     .logo-title img{
-      width:108px;height:108px;object-fit:contain;
-      animation:spin-logo 6s linear infinite;
+      width:92px;
+      height:92px;
+      object-fit:contain;
+      filter:drop-shadow(0 10px 18px rgba(0,0,0,.28));
+      animation:spin-logo 8s linear infinite;
       transform-style:preserve-3d;
     }
     @keyframes spin-logo{to{transform:rotateY(360deg)}}
-    @media(prefers-reduced-motion:reduce){.logo-title img{animation:none}}
-    h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.08;margin:0}
-    .subtitle{font-size:clamp(1.1rem,2.5vw,1.55rem);font-style:italic}
-    .hero-text{max-width:820px;margin:18px auto;font-size:1.12rem;line-height:1.7}
-    .infos{font-size:1.12rem;line-height:1.75}
-    .tel a{font-size:1.7rem;font-weight:900;color:var(--accent);text-decoration:none}
+    @media(prefers-reduced-motion:reduce){
+      .logo-title img,.hero-shell::before{animation:none}
+    }
+    .hero-heading{
+      min-width:0;
+    }
+    h1{
+      font-size:clamp(1.75rem,3.7vw,3rem);
+      line-height:1.14;
+      margin:0;
+      letter-spacing:-.035em;
+      text-wrap:balance;
+    }
+    .business-name{
+      display:block;
+      margin-bottom:8px;
+      color:var(--accent);
+      font-size:.62em;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .subtitle{
+      position:relative;
+      z-index:1;
+      max-width:900px;
+      margin:24px auto 0;
+      font-size:clamp(1rem,2vw,1.28rem);
+      color:#d8f4fb;
+      font-weight:700;
+    }
+    .hero-text{
+      position:relative;
+      z-index:1;
+      max-width:800px;
+      margin:17px auto;
+      font-size:1.06rem;
+      line-height:1.75;
+      color:var(--muted);
+    }
+    .infos{
+      position:relative;
+      z-index:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px 24px;
+      flex-wrap:wrap;
+      margin-top:20px;
+      font-size:1rem;
+      line-height:1.6;
+      color:#deedf4;
+    }
+    .infos>div{
+      padding:8px 12px;
+      border:1px solid rgba(159,222,240,.14);
+      border-radius:999px;
+      background:rgba(255,255,255,.045);
+    }
+    .tel a{
+      font-size:1.18rem;
+      font-weight:900;
+      color:var(--accent);
+      text-decoration:none;
+    }
     .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
     .btn{
       display:inline-flex;align-items:center;gap:9px;
-      padding:13px 19px;border-radius:999px;
-      text-decoration:none;font-weight:900;border:0;cursor:pointer;
-      background:#fff;color:var(--primary-dark);box-shadow:0 7px 18px rgba(0,0,0,.22);
-      transition:.2s transform,.2s box-shadow;
+      padding:13px 20px;border-radius:13px;
+      text-decoration:none;font-weight:900;border:1px solid rgba(255,255,255,.24);cursor:pointer;
+      background:linear-gradient(135deg,#f7fdff,#d9f5fb);
+      color:var(--primary-dark);
+      box-shadow:0 9px 24px rgba(0,0,0,.22);
+      transition:.2s transform,.2s box-shadow,.2s filter;
     }
-    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.3)}
-    .btn.accent{background:var(--accent);color:#1e1e1e}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 13px 30px rgba(0,0,0,.31);filter:brightness(1.04)}
+    .btn.accent{background:linear-gradient(135deg,#ffe777,#ffc928);color:#17212a;border-color:#ffe985}
     main{max-width:1180px;margin:auto;padding:0 20px 50px}
     section{
-      background:var(--panel);border:1px solid var(--border);
-      backdrop-filter:blur(7px);border-radius:20px;
-      padding:clamp(24px,4vw,38px);margin:24px 0;box-shadow:var(--shadow);
+      background:linear-gradient(145deg,rgba(9,31,48,.84),rgba(8,43,62,.67));
+      border:1px solid var(--border);
+      backdrop-filter:blur(12px);
+      border-radius:22px;
+      padding:clamp(24px,4vw,38px);
+      margin:24px 0;
+      box-shadow:var(--shadow);
     }
     section h2{font-size:clamp(1.8rem,4vw,2.7rem);margin-top:0;text-align:center}
     .intro-grid,.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .info-card{background:rgba(255,255,255,.09);border:1px solid var(--border);border-radius:16px;padding:22px}
+    .info-card{
+      background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.035));
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:24px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+    }
     .info-card i{font-size:2rem;color:var(--accent)}
     .services ul{list-style:none;padding:0;margin:0}
     .services li{
@@ -153,23 +271,57 @@
     .floating-actions{position:fixed;right:18px;bottom:18px;z-index:1100;display:flex;flex-direction:column;gap:10px}
     .floating-actions a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;text-decoration:none;font-size:1.35rem;box-shadow:var(--shadow)}
     .floating-call{background:#065e77} .floating-whatsapp{background:#25d366}
-    .lightbox{
-      position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;
-      display:none;align-items:center;justify-content:center;padding:24px;
-    }
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;touch-action:pan-y}
     .lightbox.open{display:flex}
-    .lightbox img{max-width:min(1200px,94vw);max-height:88vh;border-radius:12px;box-shadow:0 20px 60px #000}
-    .lightbox-close{position:absolute;top:18px;right:22px;background:none;border:0;color:#fff;font-size:2.2rem;cursor:pointer}
+    .lightbox-stage{width:min(1220px,88vw);height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+    .lightbox-stage>img{max-width:100%;max-height:72vh;border-radius:12px;box-shadow:0 20px 60px #000;object-fit:contain;user-select:none;-webkit-user-drag:none}
+    .lightbox-close{position:absolute;top:14px;right:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:2rem;cursor:pointer;width:48px;height:48px;border-radius:50%;z-index:3}
+    .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:58px;height:58px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#fff;font-size:1.35rem;cursor:pointer;z-index:3}
+    .lightbox-prev{left:18px}.lightbox-next{right:18px}
+    .lightbox-nav:hover,.lightbox-close:hover{background:rgba(255,255,255,.24)}
+    .lightbox-counter{font-weight:900;letter-spacing:.04em;color:var(--accent)}
+    .lightbox-caption{text-align:center;max-width:900px;line-height:1.5;font-weight:700}
+    .lightbox-thumbs{width:100%;display:flex;gap:8px;overflow-x:auto;padding:4px 2px 8px;justify-content:flex-start;scrollbar-width:thin}
+    .lightbox-thumb{flex:0 0 86px;height:62px;border-radius:8px;padding:0;overflow:hidden;border:2px solid transparent;background:#111;cursor:pointer}
+    .lightbox-thumb.active{border-color:var(--accent)}
+    .lightbox-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    @media(max-width:700px){.lightbox{padding:12px}.lightbox-stage{width:100vw;height:96vh}.lightbox-stage>img{max-height:68vh}.lightbox-nav{width:46px;height:46px;background:rgba(0,0,0,.45)}.lightbox-prev{left:6px}.lightbox-next{right:6px}.lightbox-close{top:8px;right:8px;width:44px;height:44px}.lightbox-caption{font-size:.95rem;padding:0 46px}}
     @media(max-width:850px){
       .intro-grid,.trust-grid,.portfolio-grid{grid-template-columns:1fr}
       .nav-inner{align-items:flex-start}
       .nav-links{gap:10px;font-size:.92rem}
       .project-cover{height:260px}
     }
+    @media(max-width:700px){
+      .logo-title{
+        grid-template-columns:58px minmax(0,1fr) 58px;
+        gap:10px;
+      }
+      .logo-title img{
+        width:56px;
+        height:56px;
+      }
+      .hero-shell{
+        padding:28px 14px;
+        border-radius:22px;
+      }
+      .infos{
+        flex-direction:column;
+        gap:8px;
+      }
+    }
     @media(max-width:580px){
       .nav-inner{flex-direction:column}
-      .logo-title{flex-direction:column}
-      .logo-title img:last-child{display:none}
+      .logo-title{
+        grid-template-columns:48px minmax(0,1fr) 48px;
+        gap:7px;
+      }
+      .logo-title img{
+        width:46px;
+        height:46px;
+      }
+      h1{font-size:clamp(1.38rem,7vw,1.9rem)}
+      .business-name{font-size:.58em}
       .services li{flex-direction:column;gap:4px}
       .services li span{white-space:normal}
       .project-gallery{grid-template-columns:repeat(2,1fr)}
@@ -191,25 +343,36 @@
   </nav>
 
   <header id="accueil">
-    <div class="logo-title">
-      <img src="https://raw.githubusercontent.com/DUJARDINALAIN/PC-TOP/main/4d8d779d-4203-467f-a996-e90a9501505a.png" alt="Logo PC @ TOP">
-      <h1>PC @ TOP<br>Dépannage et réparation informatique à Valenciennes</h1>
-      <img src="https://raw.githubusercontent.com/DUJARDINALAIN/PC-TOP/main/4d8d779d-4203-467f-a996-e90a9501505a.png" alt="" aria-hidden="true">
-    </div>
-    <p class="subtitle">Dépannage • Montage PC • Flash BIOS • Réparation électronique • Récupération de données</p>
-    <p class="hero-text">
-      Intervention à domicile à Valenciennes, Marly, Anzin et alentours. Découvrez ci-dessous de vraies
-      réalisations effectuées à l’atelier : montage de PC gamer, remplacement d’écran, réparation USB-C,
-      remise en service de Mac et récupération de données.
-    </p>
-    <div class="infos">
-      <div class="tel">📞 <a href="tel:+33633061315">06 33 06 13 15</a></div>
-      <div>🕒 Du lundi au samedi, de 9 h à 19 h</div>
-      <div>📍 Intervention à domicile dans un rayon d’environ 15 km</div>
-    </div>
-    <div class="cta-row">
-      <a class="btn" href="tel:+33633061315"><i class="fa-solid fa-phone"></i> Appeler maintenant</a>
-      <a class="btn accent" href="https://wa.me/33633061315" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    <div class="hero-shell">
+      <div class="logo-title">
+        <img src="https://raw.githubusercontent.com/DUJARDINALAIN/PC-TOP/main/4d8d779d-4203-467f-a996-e90a9501505a.png" alt="Logo PC @ TOP">
+        <div class="hero-heading">
+          <h1>
+            <span class="business-name">PC @ TOP</span>
+            Dépannage et réparation informatique à Valenciennes
+          </h1>
+        </div>
+        <img src="https://raw.githubusercontent.com/DUJARDINALAIN/PC-TOP/main/4d8d779d-4203-467f-a996-e90a9501505a.png" alt="" aria-hidden="true">
+      </div>
+
+      <p class="subtitle">Dépannage • Montage PC • Flash BIOS • Réparation électronique • Récupération de données</p>
+
+      <p class="hero-text">
+        Intervention à domicile à Valenciennes, Marly, Anzin et alentours. Découvrez de vraies
+        réalisations effectuées à l’atelier : montage de PC gamer, remplacement d’écran, réparation USB-C,
+        remise en service de Mac et récupération de données.
+      </p>
+
+      <div class="infos">
+        <div class="tel">📞 <a href="tel:+33633061315">06 33 06 13 15</a></div>
+        <div>🕒 Du lundi au samedi, de 9 h à 19 h</div>
+        <div>📍 Intervention dans un rayon d’environ 15 km</div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn" href="tel:+33633061315"><i class="fa-solid fa-phone"></i> Appeler maintenant</a>
+        <a class="btn accent" href="https://wa.me/33633061315" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
     </div>
   </header>
 
@@ -240,7 +403,7 @@
       <h2>Portfolio — Nos réalisations</h2>
       <p class="portfolio-intro">
         Toutes les photos présentées ci-dessous proviennent d’interventions réelles réalisées par PC @ TOP.
-        Cliquez sur une photo pour l’agrandir et utilisez les filtres pour afficher un type de réparation.
+        Cliquez sur une photo pour l’agrandir. Naviguez ensuite avec les flèches, les miniatures, le clavier ou un glissement du doigt sur mobile.
       </p>
       <div class="filters"><button type="button" class="filter-btn active" data-filter="Tous">Tous</button><button type="button" class="filter-btn" data-filter="Apple">Apple</button><button type="button" class="filter-btn" data-filter="Atelier">Atelier</button><button type="button" class="filter-btn" data-filter="Données">Données</button><button type="button" class="filter-btn" data-filter="PC Gamer">PC Gamer</button><button type="button" class="filter-btn" data-filter="PC portable">PC portable</button><button type="button" class="filter-btn" data-filter="Écrans">Écrans</button><button type="button" class="filter-btn" data-filter="Électronique">Électronique</button></div>
       <div class="portfolio-grid">
@@ -445,9 +608,16 @@
     <a class="floating-whatsapp" href="https://wa.me/33633061315" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
   </div>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie plein écran">
     <button class="lightbox-close" type="button" aria-label="Fermer">&times;</button>
-    <img src="" alt="">
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Photo précédente"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="lightbox-stage">
+      <div class="lightbox-counter" aria-live="polite"></div>
+      <img src="" alt="">
+      <div class="lightbox-caption"></div>
+      <div class="lightbox-thumbs" aria-label="Miniatures de la galerie"></div>
+    </div>
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="Photo suivante"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
 
   <script>
@@ -465,28 +635,43 @@
     });
 
     const lightbox = document.getElementById('lightbox');
-    const lightboxImage = lightbox.querySelector('img');
+    const lightboxImage = lightbox.querySelector('.lightbox-stage > img');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+    const lightboxCounter = lightbox.querySelector('.lightbox-counter');
+    const lightboxThumbs = lightbox.querySelector('.lightbox-thumbs');
     const closeButton = lightbox.querySelector('.lightbox-close');
-    document.querySelectorAll('[data-full]').forEach(button => {
-      button.addEventListener('click', () => {
-        lightboxImage.src = button.dataset.full;
-        lightboxImage.alt = button.querySelector('img')?.alt || 'Photo de réalisation';
-        lightbox.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      lightboxImage.src = '';
-      document.body.style.overflow = '';
+    const prevButton = lightbox.querySelector('.lightbox-prev');
+    const nextButton = lightbox.querySelector('.lightbox-next');
+    let currentGallery = [];
+    let currentIndex = 0;
+    let touchStartX = 0;
+    function buildGallery(button){
+      const project = button.closest('.project-card');
+      const title = project?.querySelector('h3')?.textContent?.trim() || 'Réalisation PC @ TOP';
+      const seen = new Set();
+      currentGallery = [...project.querySelectorAll('[data-full]')].map(el => ({src:el.dataset.full, alt:el.querySelector('img')?.alt || title, caption:title})).filter(item => item.src && !seen.has(item.src) && seen.add(item.src));
+      currentIndex = Math.max(0,currentGallery.findIndex(item => item.src === button.dataset.full));
     }
-    closeButton.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', event => {
-      if (event.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') closeLightbox();
-    });
+    function renderThumbs(){
+      lightboxThumbs.innerHTML='';
+      currentGallery.forEach((item,index)=>{
+        const b=document.createElement('button'); b.type='button'; b.className='lightbox-thumb'+(index===currentIndex?' active':''); b.setAttribute('aria-label',`Afficher la photo ${index+1}`); b.innerHTML=`<img src="${item.src}" alt="">`; b.onclick=()=>{currentIndex=index;renderLightbox()}; lightboxThumbs.appendChild(b);
+      });
+    }
+    function renderLightbox(){
+      if(!currentGallery.length)return; const item=currentGallery[currentIndex]; lightboxImage.src=item.src; lightboxImage.alt=item.alt; lightboxCaption.textContent=item.caption; lightboxCounter.textContent=`${currentIndex+1} / ${currentGallery.length}`; renderThumbs();
+      const multiple=currentGallery.length>1; prevButton.hidden=!multiple; nextButton.hidden=!multiple; lightboxThumbs.hidden=!multiple;
+    }
+    function openLightbox(button){buildGallery(button);renderLightbox();lightbox.classList.add('open');document.body.style.overflow='hidden'}
+    function closeLightbox(){lightbox.classList.remove('open');lightboxImage.src='';document.body.style.overflow=''}
+    function previous(){currentIndex=(currentIndex-1+currentGallery.length)%currentGallery.length;renderLightbox()}
+    function next(){currentIndex=(currentIndex+1)%currentGallery.length;renderLightbox()}
+    document.querySelectorAll('[data-full]').forEach(button=>button.addEventListener('click',()=>openLightbox(button)));
+    closeButton.addEventListener('click',closeLightbox); prevButton.addEventListener('click',previous); nextButton.addEventListener('click',next);
+    lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeLightbox()});
+    document.addEventListener('keydown',event=>{if(!lightbox.classList.contains('open'))return; if(event.key==='Escape')closeLightbox(); if(event.key==='ArrowLeft')previous(); if(event.key==='ArrowRight')next();});
+    lightbox.addEventListener('touchstart',event=>{touchStartX=event.changedTouches[0].screenX},{passive:true});
+    lightbox.addEventListener('touchend',event=>{const d=event.changedTouches[0].screenX-touchStartX;if(Math.abs(d)<45)return;d>0?previous():next()},{passive:true});
   </script>
 </body>
 </html>
