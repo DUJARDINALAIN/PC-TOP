@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://pctop-valenciennes.fr/</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://pctop-valenciennes.fr/devis</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://pctop-valenciennes.fr/contact</loc>
-    <lastmod>2025-06-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+<url><loc>https://www.pctop-valenciennes.fr/</loc><lastmod>2026-07-11</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/services/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/zones/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/sos-pc/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/realisations/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/conseils/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/contact/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/services/depannage-informatique/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/services/reparation-pc-portable/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/services/montage-pc-gamer/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/services/flash-bios/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/services/remplacement-ecran/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/services/recuperation-donnees/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/services/reparation-mac-imac/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/services/nettoyage-pc/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/zones/valenciennes/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/zones/douai/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/conseils/ecran-bleu-windows/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/conseils/pc-ne-demarre-plus/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/conseils/pc-surchauffe/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
+<url><loc>https://www.pctop-valenciennes.fr/conseils/proteger-donnees/</loc><lastmod>2026-07-11</lastmod><changefreq>monthly</changefreq></url>
 </urlset>
